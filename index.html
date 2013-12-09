@@ -14,7 +14,7 @@
             
             #trackListing li {
                 list-style-type: none;
-                background: #FC0;
+                background: #66CFFC;
                 margin: 5px 0;
                 padding: 2px;
                 cursor: pointer;
@@ -31,19 +31,26 @@
         </style>
     </head>
     <body>
-        
         <div>
             <input id="txtSearch" />
+            <br />
+            <br />
             <input type="button" value="search" id="btnSearch" />
+            <input type="button" value="play" id="btnPlay" />
             <input type="button" value="stop" id="btnStop" />
+            <input type="button" value="next" id="btnNext" />
+            <input type="button" value="pause" id="btnPause" />
         </div>
         
+        <br />
         <div>
             Now playing: <span id="txtNow"></span>
         </div>
         <div>
             <progress id='position' max='1' value='0'>
             </progress>
+            <br />
+            <br />
         </div>
         
         <div id="trackListing">

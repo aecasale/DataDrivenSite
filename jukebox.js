@@ -8,7 +8,7 @@
         var me = this;
         
         this.currentlyPlayingSound;
-        this.crrentlyPlayingIndex;
+        this.currentlyPlayingIndex;
         this.position = $(positionRef);
         this.playlist = $(playlistRef);
         console.log(this.playlist);
@@ -19,7 +19,6 @@
 this.playlist.on("click", function(event) {
     
     var clickedElement = $(event.target);
-    console.log("play");
     //update what is currently playing
     me.currentlyPlayingIndex = clickedElement.index();
     
@@ -51,6 +50,7 @@ this.playlist.on("click", function(event) {
         this.playSong(nextElement.data("trackID"));
     }
     }
+    
     
     
     //play a song
@@ -89,9 +89,53 @@ onfinish: function () {
     }
     }
     
+    $("#btnStop").click(function() {
+        if(currentlyPlayingSound) {
+            currentlyPlayingSound.stop();
+            //this.currentlyPlayingSound = sound;
+            //$('#position').val(0);
+            currentlyPlayingSound.position = 0;
+            $('#position').val(currentlyPlayingSound.position / currentlyPlayingSound.duration);
+            //this.position.val(0 / sound.duration);
+        }
+    });
+    
+       $("#btnPlay").click(function() {
+        if(currentlyPlayingSound) {
+            currentlyPlayingSound.play();
+        }
+    });
+    
+       $("#btnPause").click(function() {
+        if(currentlyPlayingSound) {
+            currentlyPlayingSound.pause();
+        }
+    });
+    
     
     //play next song
+    $("#btnNext").click(function() {
+         if(currentlyPlayingSound) {
+            currentlyPlayingSound.stop();
+            //this.currentlyPlayingSound = sound;
+            //$('#position').val(0);
+            currentlyPlayingSound.position = 0;
+            $('#position').val(currentlyPlayingSound.position / currentlyPlayingSound.duration);
+            //this.position.val(0 / sound.duration);
+        }
+        this.currentlyPlayingIndex ++;
     
+    //make sure there is a next song to play
+    if(this.currentlyPlayingIndex < this.playlist.children().length ) {
+        var nextElement = this.playlist.find('li').eq(this.currentlyPlayingIndex);
+        
+        //update the now playing HTML
+        $("#txtNow").html("Now playing: " + nextElement.html() );
+
+        //play the next song
+        this.playSong(nextElement.data("trackID"));
+    }
+    });
     
     //export jukebox for everybody to use
     window.Jukebox = Jukebox;
