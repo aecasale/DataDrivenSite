@@ -28,17 +28,22 @@ $("#btnSearch").click(function() {
 
 //respond to a click on a list item in track listing
 //for ANY LIST ITEM regardless of when it was added
-$("#trackListing").on("click", "li", function(event) { 
+$("#trackListing").on("click", "img", function(event) { 
     var clickedElement = $(event.target);
     
     //get index of the index of the data associated with clicked element
-    var arrayIndex = clickedElement.data('index');
+    var selectorIndex = clickedElement.data('index');
+    
+    var associatedTrack = $('#' + selectorIndex);
+    
+    //get index of the index of the data associated with clicked element 
+    var arrayIndex = associatedTrack.data('index');
     
     //get the extra data from the result array
     var associatedData = result[arrayIndex];
     
     //make a clone //its the same but double
-    var clonedElement = clickedElement.clone();
+    var clonedElement = associatedTrack.clone();
     
     //add some extra data to the cloned element
     //in specific, the trackID to ply whenever this item
@@ -64,7 +69,7 @@ function listSongs(query) {
             var curTrack = tracks[i];
             
             trackListing.append(
-                "<li data-index='"+i+"'>"+curTrack.title+"</li>"
+                "<li id='"+i+"' data-index='"+i+"'>"+curTrack.title+"</li><img src='assets/Add.jpg' data-index='"+i+"' />"
             );
         }
     });

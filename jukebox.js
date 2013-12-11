@@ -106,6 +106,7 @@ onfinish: function () {
         }
     });
     
+    
        $("#btnPause").click(function() {
         if(currentlyPlayingSound) {
             currentlyPlayingSound.pause();
