@@ -16,7 +16,7 @@
         
         
 //respond to a click on any list item in playlist
-this.playlist.on("click", function(event) {
+this.playlist.on("click", "li", function(event) {
     
     var clickedElement = $(event.target);
     //update what is currently playing

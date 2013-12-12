@@ -1,6 +1,40 @@
-#background {
-    background-repeat:no-repeat;
+body {
+                background-color:#F3EFE0;
+            }
+            
+            #trackListing {
+                width: 250px;
+                float: left;
+            }
+            
+            #trackListing li {
+                list-style-type: none;
+                background: #66CFFC;
+                margin: 5px 0;
+                cursor: pointer;
+                margin-right: 100px;
+            }
+            
+            #playlist {
+                width: 300px;
+                float: left;
+            }
+            
+            #playlist li {
+                list-style-type: decimal;
+                background: #66CFFC;
+                margin: 5px 0;
+                padding: 10px;
+                cursor: pointer;
+                border-radius: 10px;
+            }
+
+            #box {
+            width:500px;
+            padding:10px;
+            border:5px solid blue;
+            margin:0px;
+            
     
 }
-
 

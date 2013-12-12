@@ -1,69 +1,54 @@
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="mystyle.css">
         <title>Soundcloud API Example</title>
-        <h2>Step one: Search for music</h2>
-        <style>
-            
-            body {
-                color: #333;
-            }
-            
-            #trackListing {
-                width: 300px;
-                float: left;
-            }
-            
-            #trackListing li {
-                list-style-type: none;
-                background: #66CFFC;
-                margin: 5px 0;
-                padding: 2px;
-                cursor: pointer;
-            }
-            
-            #playlist {
-                width: 300px;
-                float: left;
-            }
-            
-            #playlist li {
-                list-style-type: none;
-            }
-        </style>
+   
     </head>
+    
     <body>
         <div>
+        <h2>Step One: Search for music</h2>
+        
+        
             <input id="txtSearch" />
             <br />
-            <br />
-            <img src="assets/Search.jpg" value="search" id="btnSearch" />
-            <img src="assets/Play.jpg" value="play" id="btnPlay" />
-            <img src="assets/Stop.jpg" value="stop" id="btnStop" />
-            <img src="assets/Next.jpg" value="next" id="btnNext" />
-            <img src="assets/Pause.jpg" value="pause" id="btnPause" />
-        </div>
+            <img src="assets/Search.png" value="search" id="btnSearch" />
+            <img src="assets/Play.png" value="play" id="btnPlay" />
+            <img src="assets/Stop.png" value="stop" id="btnStop" />
+            <img src="assets/Next.png" value="next" id="btnNext" />
+            <img src="assets/Pause.png" value="pause" id="btnPause" />
         
-        <br />
+        
+        
         <div>
             Now playing: <span id="txtNow"></span>
+            
         </div>
         <div>
             <progress id='position' max='1' value='0'>
             </progress>
+            
             <br />
             <br />
         </div>
-        <div>
+       
+            <div id="box2">
         <div id="trackListing">
+            
         
         </div>
-            <br />
-        </div>
+            </div>
+            
         <div id="playlist"></div>
+        
+        
         <script src="jquery-2.0.3.min.js"></script>
         <script src="http://connect.soundcloud.com/sdk.js"></script>
         <script src="jukebox.js"></script>
         <script src="site.js"></script>
         
+        </div>
     </body>
+        
+        
 </html>

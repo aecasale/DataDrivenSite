@@ -26,6 +26,17 @@ $("#btnSearch").click(function() {
     listSongs(searchValue);
 });
 
+$("#playlist").on("click", "img", function(event) {
+    
+    var clickedElement = $(event.target);
+    
+    //update what is currently playing
+    var removeIndex = clickedElement.data('index');
+    
+    $('#playlist .' + removeIndex).remove();
+
+});
+
 //respond to a click on a list item in track listing
 //for ANY LIST ITEM regardless of when it was added
 $("#trackListing").on("click", "img", function(event) { 
@@ -53,6 +64,10 @@ $("#trackListing").on("click", "img", function(event) {
     //add the track title to our playlist div
     playlist.append( clonedElement );
     
+    playlist.append("<img src='assets/Remove.png' data-index='"+clickedElement.data('index')+"' class='" + clickedElement.data('index') + "' id='" + clickedElement.data('index') + "' />");
+    
+    
+    
 });
 
 //lists songs for us
@@ -69,7 +84,7 @@ function listSongs(query) {
             var curTrack = tracks[i];
             
             trackListing.append(
-                "<li id='"+i+"' data-index='"+i+"'>"+curTrack.title+"</li><img src='assets/Add.jpg' data-index='"+i+"' />"
+                "<li class='"+i+"' id='"+i+"' data-index='"+i+"'>"+curTrack.title+"</li><img src='assets/Add.png' data-index='"+i+"' />"
             );
         }
     });
